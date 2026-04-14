@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethnotech Academy - HTML & CSS Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fab fa-html5"></i>
+                Ethnotech Academy
+            </div>
+            <div class="timer hidden" id="timer">
+                <i class="far fa-clock"></i>
+                <span id="timer-text">30:00</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Registration Form -->
+        <section class="card" id="registration-form">
+            <h2 class="card-title">Student Registration</h2>
+            <p>Please provide your details to begin the assessment.</p>
+            
+            <div id="already-taken-message" class="alert alert-warning hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>You have already taken this assessment. Each student can only attempt once.</span>
+            </div>
+            
+            <form id="reg-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollment">Enrollment Number</label>
+                    <input type="text" id="enrollment" name="enrollment" required>
+                </div>
+                <div class="form-group">
+                    <label for="batch">Batch Number</label>
+                    <input type="text" id="batch" name="batch" required>
+                </div>
+                <button type="submit" class="btn" id="start-test-btn">Start Assessment</button>
+            </form>
+        </section>
+
+        <!-- Test Form -->
+        <section class="hidden" id="test-form">
+            <div class="test-container">
+                <div class="test-questions">
+                    <div class="card">
+                        <h2 class="card-title">HTML & CSS Assessment</h2>
+                        <p>Answer all questions to the best of your knowledge. You have 30 minutes to complete.</p>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress" id="progress"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="progress-answered">0 answered</span>
+                                <span id="progress-total">20 total</span>
+                            </div>
+                        </div>
+                        
+                        <form id="quiz-form">
+                            <!-- Questions will be inserted here by JavaScript -->
+                            <div class="text-center mb-20">
+                                <button type="button" class="btn btn-danger" id="submit-btn">
+                                    Submit Assessment
+                                    <span class="spinner hidden" id="submit-spinner"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="test-sidebar">
+                    <div class="card">
+                        <h3 class="card-title">Question Navigator</h3>
+                        <div class="question-nav" id="question-nav">
+                            <!-- Question navigation buttons will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-card-title">Instructions</div>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Each question has four options</li>
+                            <li><i class="fas fa-check-circle"></i> Select one option per question</li>
+                            <li><i class="fas fa-check-circle"></i> You can navigate between questions</li>
+                            <li><i class="fas fa-check-circle"></i> Submit when you're done</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="card hidden" id="results">
+            <h2 class="card-title text-center">Assessment Results</h2>
+            
+            <div class="result-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="correct-count">0</div>
+                    <div class="stat-label">Correct</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="incorrect-count">0</div>
+                    <div class="stat-label">Incorrect</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="unanswered-count">0</div>
+                    <div class="stat-label">Unanswered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="score-percent">0%</div>
+                    <div class="stat-label">Score</div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-20">
+                <div class="score-circle" id="score-circle">
+                    <div class="score-text" id="score-text">0%</div>
+                </div>
+                <p class="result-message" id="result-message">Your Score</p>
+                <p id="student-details"></p>
+            </div>
+            
+            <div class="result-details" id="result-details">
+                <!-- Results will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
